@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
 export const Form = styled.div`
-  :nth-child(1) {
-    background: url("https://icon-library.com/images/working-icon/working-icon-29.jpg")
-      no-repeat center;
-    background-size: contain;
-    justify-self: end;
-  }
-
   form {
     width: 100%;
     height: 100%;
@@ -41,6 +34,7 @@ export const Form = styled.div`
 
   input,
   select {
+    border: 1px solid black !important; 
     width: 50%;
     height: 2rem;
     border: 0;

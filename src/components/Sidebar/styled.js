@@ -1,15 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: ${ ({isVisible}) => isVisible ? 'block' : 'none'};
-  height: 100%;
-  width: 11%;
-  position: fixed;
-  z-index: 1;
+  position: relative;
+  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
   background-color: #111;
   overflow-x: hidden;
 
+  a:last-child {
+    position: absolute;
+    bottom: 0px;
+    padding-left: 16px;
+  }
+
   nav {
+    width: 250px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -18,23 +25,14 @@ export const Container = styled.div`
 
   a,
   p {
-    width: 100%;
+    width: 250px;
     height: 2rem;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
+    padding-top: 16px;
     border-bottom: rgb(22, 22, 22) 2px solid;
     text-decoration: none;
     font-size: 1.2rem;
     color: #818181;
-  }
-
-  a:nth-child(1) {
-    padding-top: 1.5rem;
-    background-color: #222;
-  }
-
-  a:nth-child(5) {
-    border-bottom: 0px;
-    margin-top: 78vh;
   }
 
   a:hover {
@@ -44,15 +42,5 @@ export const Container = styled.div`
 
   p {
     background-color: #222;
-    padding-top: 1rem;
-  }
-
-  p > span {
-    margin-left: 2rem;
-  }
-
-  img {
-    width: 1.2rem;
-    padding-right: 1rem;
   }
 `;

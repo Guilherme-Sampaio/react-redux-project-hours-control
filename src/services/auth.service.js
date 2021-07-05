@@ -1,12 +1,5 @@
-import requestService from "./request.service";
+import { post } from './http-request';
 
-class AuthServiceProvider {
-  login = (user) => {
-    return requestService.post("/auth/signin", user);
-  };
-
-}
-
-const AuthService = new AuthServiceProvider();
-
-export default AuthService;
+export const login = (user) => {
+  return post("/auth/signin", user, false);
+};

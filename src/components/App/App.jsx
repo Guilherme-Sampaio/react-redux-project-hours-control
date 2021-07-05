@@ -4,11 +4,12 @@ import Sidebar from "../Sidebar/Sidebar";
 import Homepage from "../Homepage/Homepage";
 import Appointment from "../Appointment/Appointment";
 import Project from "../Project/Project";
+import { AppRoot } from "../../commom/AppRoot";
 
 function App() {
   const appPages = () => {
     return (
-      <>
+      <AppRoot>
         <Sidebar />
         <Switch>
           <Route path="/appointment">
@@ -24,7 +25,7 @@ function App() {
             <Homepage />
           </Route>
         </Switch>
-      </>
+      </AppRoot>
     );
   };
 

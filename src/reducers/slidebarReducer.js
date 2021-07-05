@@ -1,7 +1,7 @@
 import { SLIDEBAR_MENU } from "../types/slidebarType";
 
 export const initialState = {
-  isVisible: false
+  isVisible: true
 };
 
 export const slidebarMenu = (state = initialState, action) => {

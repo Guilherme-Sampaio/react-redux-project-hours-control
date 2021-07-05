@@ -7,8 +7,12 @@ import { SLIDEBAR_MENU } from "../../types/slidebarType";
 
 function Sidebar() {
   const slidebarMenu = useSelector((state) => state.slidebarMenu.isVisible);
+  const userState = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   const router = useHistory();
+  const isAdmin = userState.user.roles
+    ? userState.user.roles.includes("ROLE_ADMIN")
+    : false;
 
   function logout() {
     sessionStorage.removeItem("user");
@@ -20,7 +24,7 @@ function Sidebar() {
     dispatch({
       type: SLIDEBAR_MENU,
       isVisible: false,
-    })
+    });
     router.push("/login");
   }
 
@@ -31,7 +35,7 @@ function Sidebar() {
           <span>Control App</span>
         </p>
         <Link to="/">Página inicial</Link>
-        <Link to="/appointment">Apontamentos</Link>
+        {!isAdmin && <Link to="/appointment">Apontamentos</Link>}
         <Link to="/project">Projeto</Link>
         <Link onClick={logout}>Logout</Link>
       </nav>

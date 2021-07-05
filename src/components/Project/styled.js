@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Table = styled.div`
+  height: 100%;
+
   :nth-child(2) {
     background: url("https://cdn2.iconfinder.com/data/icons/work-from-home-30/64/29-working-512.png")
       no-repeat center;
@@ -14,6 +16,11 @@ export const Table = styled.div`
     justify-content: start;
   }
 
+  h1 {
+    padding-top: 25px;
+    padding-bottom: 8px;
+  }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -22,6 +29,7 @@ export const Table = styled.div`
 
   select {
     background-color: rgb(255, 255, 255);
+    border: 1px solid black !important; 
     width: 20%;
     height: 1.8rem;
     border: 0;

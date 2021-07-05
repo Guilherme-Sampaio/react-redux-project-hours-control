@@ -1,43 +1,29 @@
 import store from "../store";
+import axios from "axios";
 
 const urlCore = "http://localhost:8080";
-const STATUS_OK = 200;
 const userState = store.getState().userState;
 
-const get = (url) => {
-  console.log("GET", url, userState);
-  return fetch(urlCore + url, {
-    method: "GET",
+export const get = async (url) => {
+  const response = await axios.get(urlCore + url, {
     headers: {
       Authorization: userState.isLogged
         ? userState.user.type + " " + userState.user.accessToken
         : null,
       "Content-Type": "application/json",
     },
-    mode: "cors",
   });
+  return await response.data;
 };
 
-const post = (url, data) => {
-  console.log("POST", url, data, userState);
-  return fetch(urlCore + url, {
-    method: "POST",
+export const post = async (url, data, isGetJson = true) => {
+  const response = await axios.post(urlCore + url, await JSON.stringify(data), {
     headers: {
       Authorization: userState.isLogged
         ? userState.user.type + " " + userState.user.accessToken
         : null,
       "Content-Type": "application/json",
-      "Accept": "application/json",
     },
-    mode: "cors",
-    body: JSON.stringify(data),
   });
+  return isGetJson ? await response.data : await response;
 };
-
-const requestService = {
-  get,
-  post,
-  STATUS_OK,
-};
-
-export default requestService;
