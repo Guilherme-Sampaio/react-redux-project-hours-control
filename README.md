@@ -12,6 +12,12 @@ Breve demonstração do projeto em funcionamento.
 
 ![Demonstração](./public/frontEndmarkdown.gif)
 
+Para esta aplicação temos também a implementação de privilégios, aonde
+
+* O admnistrador não pode apontar horas, mas pode ver as horas apontadas de todos desenvolvedores.
+* O programador 1 pode apontar somente no projeto A.
+* O programador 2 pode apontar nos projetos A e projeto B.
+
 ---
 ## Como rodar
 
@@ -31,12 +37,31 @@ npm install
 npm start
 
 ```
+
+Para realizar o login utilize algum dos seguintes usuários:
+
+```JSON
+{
+  "username": "Admnistrador",
+  "password": "adm123"
+}
+{
+  "username": "Programador1",
+  "password": "prog1123"
+}
+{
+  "username": "Programador2",
+  "password": "prog2123"
+}
+```
+
 ---
 ## Tecnologias usadas
 
 * ReactJS
 * Redux
 * Styled-Components
+* Axios
 
 ---
 ## Autor
