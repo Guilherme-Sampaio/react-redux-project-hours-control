@@ -1,0 +1,1 @@
+export const SLIDEBAR_MENU = 'SLIDEBAR_MENU';

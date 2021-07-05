@@ -1,11 +1,34 @@
-import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LoginPage from "../LoginPage/LoginPage";
+import Sidebar from "../Sidebar/Sidebar";
+import Homepage from "../Homepage/Homepage";
+import Appointment from "../Appointment/Appointment";
+import Project from "../Project/Project";
 
 function App() {
-  return (
-    <div>
-      <p>Hello world!</p>
-    </div>
-  );
+  const appPages = () => {
+    return (
+      <>
+        <Sidebar />
+        <Switch>
+          <Route path="/appointment">
+            <Appointment />
+          </Route>
+          <Route path="/project">
+            <Project />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/">
+            <Homepage />
+          </Route>
+        </Switch>
+      </>
+    );
+  };
+
+  return <Router>{appPages()}</Router>;
 }
 
 export default App;
