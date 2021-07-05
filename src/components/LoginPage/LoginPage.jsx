@@ -24,7 +24,6 @@ function LoginPage() {
     const user = login(getValues());
     user
       .then((data) => {
-        console.log("data", data, data.data);
         sessionStorage.setItem("user", JSON.stringify(data.data));
         dispatch({
           type: USER_TYPE,

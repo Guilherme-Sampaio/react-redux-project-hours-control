@@ -37,7 +37,6 @@ function Appointment() {
       user: { id: userState.user.id },
     };
     const statusRequest = await createAppointment(appointment);
-    console.log(statusRequest);
     alert("Apontamento realizado com sucesso!");
   };
 
