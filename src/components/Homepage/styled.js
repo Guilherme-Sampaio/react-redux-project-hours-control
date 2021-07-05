@@ -1,7 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Home = styled.div`
-
   div {
     position: absolute;
     width: 500px;

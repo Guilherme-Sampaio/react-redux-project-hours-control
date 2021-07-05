@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: top;
-  background-image: url("https://everydayfeminism.com/wp-content/uploads/2015/11/iStock_000075210281_Medium.jpg");
+  background-image: url('https://everydayfeminism.com/wp-content/uploads/2015/11/iStock_000075210281_Medium.jpg');
   width: 100vw;
   height: 100vh;
   font-family: Arial, Helvetica;
@@ -26,7 +26,7 @@ export const Container = styled.div`
   }
 
   div:after {
-    content: "";
+    content: '';
     width: 300px;
     height: 350px;
     background: inherit;
@@ -57,7 +57,7 @@ export const Container = styled.div`
     position: relative;
     border-radius: 50%;
     background-size: contain;
-    background-image: url("https://cdn2.iconfinder.com/data/icons/basic-ui-84/32/User-512.png");
+    background-image: url('https://cdn2.iconfinder.com/data/icons/basic-ui-84/32/User-512.png');
   }
 
   label {
@@ -76,10 +76,10 @@ export const Container = styled.div`
     border: 0;
   }
 
-	Button {
-		margin-top: 1.5rem; 
+  Button {
+    margin-top: 1.5rem;
     width: 93%;
     height: 1.8rem;
     opacity: 0.4;
-	}
+  }
 `;

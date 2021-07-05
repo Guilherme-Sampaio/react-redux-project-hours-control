@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Container } from "./styled";
-import { Button } from "../../commom/Button";
-import { useDispatch } from "react-redux";
-import { USER_TYPE } from "../../types/userType";
-import { login } from "../../services/auth.service";
-import { useHistory } from "react-router-dom";
-import { SLIDEBAR_MENU } from "../../types/slidebarType";
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Container } from './styled';
+import { Button } from '../../commom/Button';
+import { useDispatch } from 'react-redux';
+import { USER_TYPE } from '../../types/userType';
+import { login } from '../../services/auth.service';
+import { useHistory } from 'react-router-dom';
+import { SLIDEBAR_MENU } from '../../types/slidebarType';
 
 function LoginPage() {
   const { register, handleSubmit, getValues } = useForm();
@@ -20,11 +20,11 @@ function LoginPage() {
     });
   }, []);
 
-  const onLogin = async (data) => {
+  const onLogin = async () => {
     const user = login(getValues());
     user
       .then((data) => {
-        sessionStorage.setItem("user", JSON.stringify(data.data));
+        sessionStorage.setItem('user', JSON.stringify(data.data));
         dispatch({
           type: USER_TYPE,
           user: data.data,
@@ -34,13 +34,13 @@ function LoginPage() {
           type: SLIDEBAR_MENU,
           isVisible: true,
         });
-        router.push("/");
+        router.push('/');
         setTimeout(() => {
           window.location.reload();
-        }, 250)
+        }, 250);
       })
       .catch(() => {
-        alert("Erro ao efetuar login!");
+        alert('Erro ao efetuar login!');
       });
   };
 
@@ -50,9 +50,9 @@ function LoginPage() {
         <form onSubmit={handleSubmit(onLogin)}>
           <span></span>
           <label>Login</label>
-          <input required {...register("username")} type="text" />
+          <input required {...register('username')} type="text" />
           <label>Senha</label>
-          <input required {...register("password")} type="password" />
+          <input required {...register('password')} type="password" />
           <Button type="submit">Entrar</Button>
         </form>
       </div>

@@ -1,10 +1,10 @@
-import { USER_TYPE } from "../types/userType";
+import { USER_TYPE } from '../types/userType';
 
-const user = JSON.parse(sessionStorage.getItem("user"));
+const sessionUser = JSON.parse(sessionStorage.getItem('user'));
 
 const initialState = {
-  user: Boolean(user) ? user : {},
-  isLogged: Boolean(user),
+  user: sessionUser || {},
+  isLogged: Boolean(sessionUser),
 };
 
 export const userState = (state = initialState, action) => {

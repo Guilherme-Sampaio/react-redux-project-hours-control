@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { Container } from "../../commom/Container";
-import { Button } from "../../commom/Button";
-import { Form } from "./styled";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getProjectsByUserId } from "../../services/project";
-import { createAppointment } from "../../services/appointment";
-import { getFormatedDb, getMementString } from "../../services/time";
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Container } from '../../commom/Container';
+import { Button } from '../../commom/Button';
+import { Form } from './styled';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getProjectsByUserId } from '../../services/project';
+import { createAppointment } from '../../services/appointment';
+import { getFormatedDb, getMementString } from '../../services/time';
 
 function Appointment() {
   const { register, handleSubmit, getValues, setValue } = useForm();
@@ -17,15 +17,15 @@ function Appointment() {
 
   useEffect(() => {
     if (!userState.isLogged) {
-      router.push("/login");
+      router.push('/login');
     }
   }, []);
 
   useEffect(async () => {
-    const projects = await getProjectsByUserId(userState.user.id);
-    setProjects(projects);
-    setValue("startDate", getMementString(0));
-    setValue("finishDate", getMementString(2));
+    const data = await getProjectsByUserId(userState.user.id);
+    setProjects(data);
+    setValue('startDate', getMementString(0));
+    setValue('finishDate', getMementString(2));
   }, []);
 
   const onCreateAppointment = async () => {
@@ -36,8 +36,8 @@ function Appointment() {
       project: { id: data.project ? data.project : projects[0].id },
       user: { id: userState.user.id },
     };
-    const statusRequest = await createAppointment(appointment);
-    alert("Apontamento realizado com sucesso!");
+    await createAppointment(appointment);
+    alert('Apontamento realizado com sucesso!');
   };
 
   return (
@@ -47,7 +47,7 @@ function Appointment() {
           <form onSubmit={handleSubmit(onCreateAppointment)}>
             <p>Apontamentos</p>
             <label htmlFor="project ">Projeto</label>
-            <select {...register("project")}>
+            <select {...register('project')}>
               {projects &&
                 projects.map((project, key) => (
                   <option key={key} value={project.id}>
@@ -56,9 +56,9 @@ function Appointment() {
                 ))}
             </select>
             <label htmlFor="startDate ">Horário inicial</label>
-            <input required {...register("startDate")} type="datetime-local" />
+            <input required {...register('startDate')} type="datetime-local" />
             <label htmlFor="finishDate ">Horário final</label>
-            <input required {...register("finishDate")} type="datetime-local" />
+            <input required {...register('finishDate')} type="datetime-local" />
             <Button>Finalizar apontamento</Button>
           </form>
         </Form>

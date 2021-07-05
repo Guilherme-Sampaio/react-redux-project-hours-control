@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { Container } from "../../commom/Container";
-import { Table } from "./styled";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getAllProjects, getProjectsByUserId } from "../../services/project";
+import React, { useEffect, useState } from 'react';
+import { Container } from '../../commom/Container';
+import { Table } from './styled';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getAllProjects, getProjectsByUserId } from '../../services/project';
 import {
   getAllTimeDifference,
   getFormatedTime,
   getTimeDifference,
-} from "../../services/time";
+} from '../../services/time';
 
 function Project() {
   const userState = useSelector((state) => state.userState);
   const router = useHistory();
   const [projects, setProjects] = useState([]);
   const isAdmin = userState.user
-    ? userState.user.roles.includes("ROLE_ADMIN")
+    ? userState.user.roles.includes('ROLE_ADMIN')
     : false;
   const isDev = userState.user
-    ? userState.user.roles.includes("ROLE_DEV")
+    ? userState.user.roles.includes('ROLE_DEV')
     : false;
 
   useEffect(async () => {
     if (!userState.isLogged) {
-      router.push("/login");
+      router.push('/login');
     }
     getProject();
   }, []);
@@ -44,14 +44,14 @@ function Project() {
     if (isDev) {
       return appointmentList
         ? appointmentList.filter(
-            (appointmentList) => appointmentList.user.id === userState.user.id
+            (appointment) => appointment.user.id === userState.user.id
           )
         : appointmentList;
     }
 
-    return appointmentList.sort((A, B) => {
-      if (A.user.username > B.user.username) return 1;
-      if (A.user.username < B.user.username) return -1;
+    return appointmentList.sort((appointmentA, appointmentB) => {
+      if (appointmentA.user.username > appointmentB.user.username) return 1;
+      if (appointmentA.user.username < appointmentB.user.username) return -1;
       return 0;
     });
   };
@@ -61,7 +61,7 @@ function Project() {
     return (
       appointments &&
       appointments.map((appointment) => (
-        <tr>
+        <tr key={appointment.id}>
           <td>{appointment.id}</td>
           <td>{appointment.user.username}</td>
           <td>{getFormatedTime(appointment.startDate)}</td>

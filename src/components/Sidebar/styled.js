@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
   height: 100vh;
   width: 250px;
   z-index: 999;

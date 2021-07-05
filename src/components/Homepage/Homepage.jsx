@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Container } from "../../commom/Container";
-import { SLIDEBAR_MENU } from "../../types/slidebarType";
-import { Home } from './styled'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { Container } from '../../commom/Container';
+import { SLIDEBAR_MENU } from '../../types/slidebarType';
+import { Home } from './styled';
 
 function Homepage() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function Homepage() {
 
   useEffect(() => {
     if (!userState.isLogged) {
-      router.push("/login");
+      router.push('/login');
     }
   }, []);
 

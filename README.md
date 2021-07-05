@@ -62,6 +62,7 @@ Para realizar o login utilize algum dos seguintes usuários:
 * Redux
 * Styled-Components
 * Axios
+* Eslint
 
 ---
 ## Autor

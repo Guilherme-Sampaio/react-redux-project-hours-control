@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Form = styled.div`
   form {
@@ -34,7 +34,7 @@ export const Form = styled.div`
 
   input,
   select {
-    border: 1px solid black !important; 
+    border: 1px solid black !important;
     width: 50%;
     height: 2rem;
     border: 0;

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Container } from "./styled";
-import { USER_TYPE } from "../../types/userType";
-import { SLIDEBAR_MENU } from "../../types/slidebarType";
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container } from './styled';
+import { USER_TYPE } from '../../types/userType';
+import { SLIDEBAR_MENU } from '../../types/slidebarType';
 
 function Sidebar() {
   const slidebarMenu = useSelector((state) => state.slidebarMenu.isVisible);
@@ -11,11 +11,11 @@ function Sidebar() {
   const dispatch = useDispatch();
   const router = useHistory();
   const isAdmin = userState.user.roles
-    ? userState.user.roles.includes("ROLE_ADMIN")
+    ? userState.user.roles.includes('ROLE_ADMIN')
     : false;
 
   function logout() {
-    sessionStorage.removeItem("user");
+    sessionStorage.removeItem('user');
     dispatch({
       type: USER_TYPE,
       user: {},
@@ -25,7 +25,7 @@ function Sidebar() {
       type: SLIDEBAR_MENU,
       isVisible: false,
     });
-    router.push("/login");
+    router.push('/login');
   }
 
   return (
